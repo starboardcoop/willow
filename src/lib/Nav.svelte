@@ -4,6 +4,7 @@
     import Row from "$lib/Row.svelte";
     import Button from "$lib/Button.svelte";
 
+    export let logo;
     export let title;
     export let links = [];
 </script>
@@ -11,7 +12,11 @@
 <nav class="w-full">
     <Container>
         <Grid>
-            {#if title}
+            {#if logo}
+                <Row>
+                    <a href="/"><img src={logo} alt={title} class="h-16 w-auto" /></a>
+                </Row>
+            {:else if title}
                 <Row>
                     <Button type="ghost"><a href="/">{title}</a></Button>
                 </Row>
